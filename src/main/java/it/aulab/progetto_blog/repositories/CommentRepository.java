@@ -11,6 +11,6 @@ import it.aulab.progetto_blog.models.Post;
 
 public interface CommentRepository extends ListCrudRepository<Comment, Long> {
 
-    List<Comment> findByEmail(String email);
+    List<Comment> findByAuthor(Author author);
     List<Comment> findByPost(Post post);
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import it.aulab.progetto_blog.dtos.AuthorDto;
 import it.aulab.progetto_blog.models.Author;
 import it.aulab.progetto_blog.models.Post;
 import it.aulab.progetto_blog.repositories.AuthorRepository;
@@ -36,26 +37,26 @@ public class AuthorRestController {
 
     // @RequestMapping(method=RequestMethod.GET)
     @GetMapping
-    public List<Author> getAllAuthors(){
+    public List<AuthorDto> getAllAuthors(){
         return authorService.readAll();
     }
 
     // @RequestMapping(value = "/{id}", method=RequestMethod.GET)
     @GetMapping("{id}")
-    public Author getAuthor(@PathVariable("id") Long id){
+    public AuthorDto getAuthor(@PathVariable("id") Long id){
         return authorService.read(id);
     }
     
     
     @PostMapping //(consumes = "application/json") come default quindi ometto dalla funz
-    public Author createAuthor(@RequestBody Author author){
-        return authorService.create(author);
+    public AuthorDto createAuthor(@RequestBody AuthorDto authorDto){
+        return authorService.create(authorDto);
     } 
 
     @PutMapping("{id}")
-    public Author updateAuthor(@PathVariable ("id") Long id, @RequestBody Author author){
+    public AuthorDto updateAuthor(@PathVariable ("id") Long id, @RequestBody AuthorDto authorDto){
         // author.setId(id);
-        return authorService.update(id,author);
+        return authorService.update(id,authorDto);
     } 
 
     @DeleteMapping("{id}")

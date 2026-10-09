@@ -1,0 +1,13 @@
+.img-titolo {
+    background: url(/img/bobsburger.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    height: 40vh;
+}
+
+.titolo{
+    color: rgb(209, 26, 26);
+    font-size: 100px;
+}
+

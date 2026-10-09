@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.aulab.progetto_blog.dtos.PostDto;
 import it.aulab.progetto_blog.models.Author;
 import it.aulab.progetto_blog.models.Post;
 import it.aulab.progetto_blog.repositories.PostRepository;
@@ -28,24 +29,24 @@ public class PostRestController {
     PostService postService;
 
     @GetMapping
-    public List<Post> getAllPost(){
+    public List<PostDto> getAllPost(){
         return postService.readAll();
     }
 
     @GetMapping("{id}")
-    public Post getPost(@PathVariable("id") Long id){
+    public PostDto getPost(@PathVariable("id") Long id){
         return postService.read(id);
     }
     
     
     @PostMapping 
-    public Post createPost(@RequestBody Post post){
-        return postService.create(post);
+    public PostDto createPost(@RequestBody PostDto postDto){
+        return postService.create(postDto);
     } 
 
     @PutMapping("{id}")
-    public Post updatePost(@PathVariable ("id") Long id, @RequestBody Post post){
-        return postService.update(id,post);
+    public PostDto updatePost(@PathVariable ("id") Long id, @RequestBody PostDto postDto){
+        return postService.update(id,postDto);
     } 
 
     @DeleteMapping("{id}")

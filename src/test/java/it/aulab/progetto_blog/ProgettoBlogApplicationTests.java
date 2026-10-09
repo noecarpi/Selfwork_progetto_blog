@@ -39,14 +39,14 @@ class ProgettoBlogApplicationTests {
 		assertThat(authorRepository.findByName("Bob")).extracting("name").containsOnly("Bob");
 	}
 
-	@Test 
-	void sameNameAuthor(){
-		assertThat(authorRepository.authorsWithSameName()).extracting("name").containsOnly("Bob");
-	}
+	// @Test 
+	// void sameNameAuthor(){
+	// 	assertThat(authorRepository.authorsWithSameName()).extracting("name").containsOnly("Bob");
+	// }
 
-	@Test 
-	void sameNameAuthorNonNative(){
-		assertThat(authorRepository.authorsWithSameName()).extracting("name").containsOnly("Bob");
-	}
+	// @Test 
+	// void sameNameAuthorNonNative(){
+	// 	assertThat(authorRepository.authorsWithSameName()).extracting("name").containsOnly("Bob");
+	// }
 
 }

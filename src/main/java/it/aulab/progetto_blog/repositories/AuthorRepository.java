@@ -14,11 +14,11 @@ public interface AuthorRepository extends ListCrudRepository<Author, Long> {
     List<Author> findByNameAndSurname(String firstname, String lastname);
     List<Author> findByEmail(String email);
 
-    // query nativa
-    @Query (value = "SELECT * FROM authors a WHERE a.firstname = 'Bob'", nativeQuery = true)
-    List<Author> authorsWithSameName();
+    // // query nativa
+    // @Query (value = "SELECT * FROM authors a WHERE a.firstname = 'Bob'", nativeQuery = true)
+    // List<Author> authorsWithSameName();
 
-    // query non nativa
-    @Query ("SELECT a FROM Author a WHERE a.name = 'Bob'")
-    List<Author> authorsWithSameNameNonNative();
+    // // query non nativa
+    // @Query ("SELECT a FROM Author a WHERE a.name = 'Bob'")
+    // List<Author> authorsWithSameNameNonNative();
 }

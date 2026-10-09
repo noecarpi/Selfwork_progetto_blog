@@ -2,15 +2,16 @@ package it.aulab.progetto_blog.services;
 
 import java.util.List;
 
+import it.aulab.progetto_blog.dtos.AuthorDto;
 import it.aulab.progetto_blog.models.Author;
 
 public interface AuthorService {
 
-    List<Author> readAll();
-    Author read(Long id);
-    List<Author> read(String email);
-    List<Author> read(String firstname,String lastname);
-    Author create(Author author);
-    Author update(Long id, Author author);
+    List<AuthorDto> readAll();
+    AuthorDto read(Long id);
+    List<AuthorDto> read(String email);
+    List<AuthorDto> read(String firstname,String lastname);
+    AuthorDto create(AuthorDto authorDto);
+    AuthorDto update(Long id, AuthorDto authorDto);
     void delete(Long id);
 }

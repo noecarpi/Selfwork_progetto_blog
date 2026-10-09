@@ -1,5 +1,7 @@
 package it.aulab.progetto_blog.models;
 
+import java.time.LocalDate;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -20,16 +22,27 @@ public class Comment {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     @Column (nullable = false, length = 100)
-    private String email;
-    @Column (nullable = false, length = 100)
     private String body;
     @Column (nullable = false, length = 100)
-    private String date;
+    private LocalDate date;
 
     @ManyToOne 
     @JoinColumn (name = "post_id", nullable = false)
     @JsonIgnoreProperties(("comments")) 
     private Post post;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id", nullable = false)
+    @JsonIgnoreProperties(("posts"))
+    private Author author;
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 
     // costruttore
     public Comment() {
@@ -44,14 +57,6 @@ public class Comment {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getBody() {
         return body;
     }
@@ -60,11 +65,11 @@ public class Comment {
         this.body = body;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
